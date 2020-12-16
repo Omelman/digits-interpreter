@@ -5,7 +5,7 @@ import (
 	"unicode"
 )
 
-func TranslateText(in string, selectedMap map[byte]byte) string {
+func TextInterpreter(in string, selectedMap map[byte]byte) string {
 	var readyWords []string
 	var separators []string
 	text := in
@@ -27,7 +27,7 @@ func TranslateText(in string, selectedMap map[byte]byte) string {
 	separators = append(separators, text[lastWordPos:])
 
 	for i, word := range Words {
-		readyWords = append(readyWords, Interpreter(word, selectedMap)+separators[i])
+		readyWords = append(readyWords, WordInterpreter(word, selectedMap)+separators[i])
 	}
 
 	return strings.Join(readyWords, "")
